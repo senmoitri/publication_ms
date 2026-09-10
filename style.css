@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #ffffff;
+    color: #222222;
+
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 40px 30px 60px;
+}
+
+
+/* Header */
+
+.header {
+    margin-bottom: 30px;
+
+    border-bottom: 2px solid #eeeeee;
+
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-size: 36px;
+
+    font-weight: 600;
+}
+
+.subtitle {
+    margin: 5px 0 0;
+
+    color: #666666;
+
+    font-size: 16px;
+}
+
+.count {
+    color: #888888;
+}
+
+
+/* Search and filter */
+
+.controls {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+
+    flex-wrap: wrap;
+}
+
+#searchBox {
+    flex: 1;
+
+    min-width: 250px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+#searchBox:focus {
+    border-color: #777777;
+}
+
+#yearFilter {
+    padding: 12px 15px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    background: white;
+
+    font-size: 15px;
+
+    min-width: 130px;
+}
+
+
+/* Year */
+
+.year-section {
+    margin-bottom: 35px;
+}
+
+.year-section h2 {
+    margin: 0 0 15px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #dddddd;
+
+    font-size: 25px;
+
+    font-weight: 600;
+}
+
+
+/* Publication */
+
+.publication {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 15px 10px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.publication:hover {
+    background: #fafafa;
+}
+
+.publication-number {
+    min-width: 45px;
+
+    color: #666666;
+
+    font-weight: 600;
+}
+
+.publication-content {
+    flex: 1;
+}
+
+.authors {
+    font-size: 15px;
+
+    margin-bottom: 3px;
+}
+
+.title {
+    font-size: 16px;
+
+    font-weight: 500;
+
+    margin-bottom: 4px;
+}
+
+.details {
+    color: #555555;
+
+    font-size: 14px;
+}
+
+.details em {
+    font-style: italic;
+}
+
+.links {
+    margin-top: 7px;
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.links a {
+    font-size: 13px;
+
+    text-decoration: none;
+
+    color: #1769aa;
+
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+/* No results */
+
+.no-results {
+    display: none;
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #777777;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .container {
+        padding: 25px 18px 40px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .publication {
+        gap: 8px;
+
+        padding: 13px 5px;
+    }
+
+    .publication-number {
+        min-width: 35px;
+
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .details {
+        font-size: 13px;
+    }
+
+    #searchBox {
+        width: 100%;
+    }
+
+    #yearFilter {
+        width: 100%;
+    }
+}
