@@ -1,4 +1,4 @@
-name: Generate and Publish Publications
+name: Generate and Publish Academic Website
 
 on:
   push:
@@ -8,6 +8,8 @@ on:
       - "own-bib.bib"
       - "generate.py"
       - "style.css"
+      - "script.js"
+      - "*.html"
       - "requirements.txt"
       - ".github/workflows/publish.yml"
 
@@ -33,6 +35,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show current commit
+        run: |
+          echo "Commit:"
+          git rev-parse HEAD
+          echo "Branch:"
+          git branch --show-current
+
+      - name: Check BibTeX file
+        run: |
+          echo "BibTeX file:"
+          ls -lh own-bib.bib
+          echo "Number of entries:"
+          grep -c '^@' own-bib.bib || true
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -43,16 +59,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate publication webpage
+      - name: Generate publications page
         run: |
           python generate.py
 
-      - name: Verify generated files
+      - name: Verify generated publications
         run: |
-          echo "Files in repository:"
-          ls -la
-          echo "Checking index.html..."
-          test -f index.html
+          test -f publications.html
+          echo "Generated publications.html:"
+          ls -lh publications.html
+          echo "Publication count in generated page:"
+          grep -o '<article class="publication"' publications.html | wc -l
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
